@@ -12,15 +12,15 @@ public class GirderStockController : MonoBehaviour
     private Vector3 girderLocalPos;
     private void Awake()
     {
-        girderLocalPos = transform.parent.GetChild(1).GetChild(0).transform.localPosition;
-        girderRigidBody = transform.parent.GetChild(1).transform.GetComponentInChildren<Rigidbody>();
+        girderLocalPos = transform.parent.GetChild(1).GetChild(1).transform.localPosition;
+        girderRigidBody = transform.parent.GetChild(1).GetChild(1).GetComponent<Rigidbody>();
     }
 
     public void GirderStockBringing() // Stoktaki kirişlerden birini makinenin kucağına ışınlar
     {
         Girders[Girders.Count - 1].transform.SetParent(transform.parent.GetChild(1).transform);
         Girders[Girders.Count - 1].transform.localPosition = girderLocalPos; // smooth hareket ayarlanacak
-        girderRigidBody = transform.parent.GetChild(1).transform.GetComponentInChildren<Rigidbody>();
+        girderRigidBody = transform.parent.GetChild(1).GetChild(1).GetComponent<Rigidbody>();
         Girders.RemoveAt(Girders.Count - 1);
     }
     public IEnumerator GirderStockBringingDelayed()

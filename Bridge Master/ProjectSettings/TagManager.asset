@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Girder
   - Piston
-  - MachineLegSupport
+  - FrontSupport
+  - BackSupport
   layers:
   - Default
   - TransparentFX

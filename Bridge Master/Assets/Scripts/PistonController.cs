@@ -17,16 +17,16 @@ public class PistonController : MonoBehaviour
     {
         DOTween.Kill(transform, false);
         Sequence pistonSequence = DOTween.Sequence();
-        pistonSequence.Append(transform.DOLocalMoveY(1, pistonDroppingTime))
-            .Append(transform.DOLocalMoveY(5, pistonDroppingTime))
-            .Append(transform.DOLocalMoveX(0, 0.5f));
+        pistonSequence.Append(transform.DOLocalMoveY(-2.8f, pistonDroppingTime))
+            .Append(transform.DOLocalMoveY(0f, pistonDroppingTime))
+            .Join(transform.DOLocalMoveX(0f, pistonDroppingTime));
     }
     public void PistonMoving() // Kirişi tutan piston sağ sola salınım yapar
     {
         Sequence pistonSequence2 = DOTween.Sequence();
         pistonSequence2.Append(transform.DOLocalMoveX(pistonMaxSwingPoint, pistonSwingTime*0.5f))
             .AppendCallback( () => {
-             transform.DOLocalMoveX(-pistonMaxSwingPoint, pistonSwingTime).SetLoops(-1, LoopType.Yoyo); 
+             transform.DOLocalMoveX(-pistonMaxSwingPoint, pistonSwingTime).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear); 
         });       
         isSwinging = true;
     }

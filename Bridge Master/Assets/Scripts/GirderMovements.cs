@@ -11,7 +11,7 @@ public class GirderMovements : MonoBehaviour
 
     private GameObject Girder;
 
-    private int girderLocation = 15;
+    private int girderLocation = 30;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class GirderMovements : MonoBehaviour
     {
         if (pistonController.isSwinging)
         {
-            Girder = transform.GetChild(1).GetChild(0).gameObject;
+            Girder = transform.GetChild(1).GetChild(1).gameObject;
             
             pistonController.isSwinging = false;
             StartCoroutine(girderStockController.GirderStockBringingDelayed());
@@ -41,14 +41,13 @@ public class GirderMovements : MonoBehaviour
     }
     void GirderSitsToBridge()
     {
+        machineMovingController.nextStep += 10;
         Girder.transform.SetParent(null);
         Sequence girderSequence = DOTween.Sequence();
-        girderSequence.Append(Girder.transform.DOLocalMoveY(0f, 1f))
-                  .Append(Girder.transform.DOLocalMoveX(girderLocation, 0.1f));
-        machineMovingController.nextStep += 10;
+        girderSequence.Append(Girder.transform.DOLocalMoveY(0f,pistonController.pistonDroppingTime))
+                  .Append(Girder.transform.DOLocalMoveZ(girderLocation, 0.1f));
         girderLocation += 10;
         machineMovingController.MachineForwardMovingNextStep();
-       // machineMovingController.MachineBackwardMoving();
     }
     IEnumerator GirderFellDown()
     {
