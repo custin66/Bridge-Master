@@ -54,6 +54,8 @@ public class GirderMovements : MonoBehaviour
         yield return new WaitForSeconds(pistonController.pistonDroppingTime);
         Girder.transform.SetParent(null);
         girderStockController.girderRigidBody.isKinematic = false;
+        girderStockController.girderBoxCollider.isTrigger = true;
+        yield return new WaitForSeconds(pistonController.pistonDroppingTime*0.5f);
         pistonController.PistonMoving();
     }
 }

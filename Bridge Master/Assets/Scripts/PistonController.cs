@@ -25,9 +25,10 @@ public class PistonController : MonoBehaviour
     {
         DOTween.Kill(transform, false);
         Sequence pistonSequence = DOTween.Sequence();
-        pistonSequence.Append(transform.DOLocalMoveY(-2.8f, pistonDroppingTime))
-            .Append(transform.DOLocalMoveY(0f, pistonDroppingTime))
-            .Join(transform.DOLocalMoveX(pistonMaxSwingPoint, pistonDroppingTime));
+        pistonSequence.Append(transform.DOLocalMoveY(-2.8f, pistonDroppingTime).SetEase(Ease.Linear))
+            .Append(transform.DOLocalMove(new Vector3(pistonMaxSwingPoint, 0f, 0f), pistonDroppingTime));
+            //.Append(transform.DOLocalMoveY(0f, pistonDroppingTime).SetEase(Ease.Linear))
+           // .Join(transform.DOLocalMoveX(pistonMaxSwingPoint, pistonDroppingTime).SetEase(Ease.Linear));
     }
     public void PistonMoving() // Kirişi tutan piston sağ sola salınım yapar
     {
