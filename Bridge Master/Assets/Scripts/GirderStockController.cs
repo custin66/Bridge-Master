@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GirderStockController : MonoBehaviour
 {
+    PistonController pistonController;
+
     [SerializeField]
     private List<GameObject> Girders = new List<GameObject>();
 
@@ -12,6 +14,7 @@ public class GirderStockController : MonoBehaviour
     private Vector3 girderLocalPos;
     private void Awake()
     {
+        pistonController = FindObjectOfType<PistonController>();
         girderLocalPos = transform.parent.GetChild(1).GetChild(1).transform.localPosition;
         girderRigidBody = transform.parent.GetChild(1).GetChild(1).GetComponent<Rigidbody>();
     }
@@ -25,7 +28,7 @@ public class GirderStockController : MonoBehaviour
     }
     public IEnumerator GirderStockBringingDelayed()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(pistonController.pistonDroppingTime*1.5f);
         GirderStockBringing();
     }
 }

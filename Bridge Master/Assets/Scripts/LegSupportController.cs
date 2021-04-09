@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LegSupportController : MonoBehaviour
 {
-    MachineMovingController machineMovingController;
+  //  MachineMovingController machineMovingController;
     private Vector3 legSupportLocalPos;
     [HideInInspector]
     public float legSupportMovingDuration = 1f;
@@ -19,7 +19,7 @@ public class LegSupportController : MonoBehaviour
     {
         if (this.gameObject != null)
         {
-            machineMovingController = FindObjectOfType<MachineMovingController>();
+          //  machineMovingController = FindObjectOfType<MachineMovingController>();
             transform.SetParent(null);
             transform.tag = "BackSupport";
             Sequence legSupportSequenceOpening = DOTween.Sequence();

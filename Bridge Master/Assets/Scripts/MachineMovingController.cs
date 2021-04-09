@@ -28,7 +28,6 @@ public class MachineMovingController : MonoBehaviour
 
     void Start()
     {
-
         nextStep = transform.position.z + girderLength;
         MachineForwardMoving();
     }
@@ -36,6 +35,7 @@ public class MachineMovingController : MonoBehaviour
     public void MachineForwardMoving() //Makine 1 adım ileri gider
     {
         legSupportController = gameObject.transform.GetChild(2).GetChild(0).transform.GetComponent<LegSupportController>();
+
         Sequence machineSequenceForward = DOTween.Sequence();
         machineSequenceForward.Append(transform.DOMoveZ(nextStep, machineMovingDuration))
         .AppendCallback(() =>
@@ -44,27 +44,24 @@ public class MachineMovingController : MonoBehaviour
         })
             .Append(transform.DOMoveZ(nextStep + machineFirstStep, machineMovingDuration).SetDelay(legSupportController.legSupportMovingDuration));
 
-        StartCoroutine(pistonController.PistonMovingDelayed());
+        StartCoroutine(pistonController.PistonMovingFirstDelayed());
     }
     public void MachineForwardMovingNextStep()
     {
         Instantiate(legSupportPrefab, new Vector3(0, 10.8f, 60f + nextStep), legSupportLocalRotation, transform.GetChild(2));
-        if(GameObject.FindGameObjectWithTag("BackSupport")!= null|| gameObject.transform.GetChild(2).GetChild(0) != null)
+        if (GameObject.FindGameObjectWithTag("BackSupport") != null || gameObject.transform.GetChild(2).GetChild(0) != null)
         {
-        legSupportController = GameObject.FindGameObjectWithTag("BackSupport").transform.GetComponent<LegSupportController>();
-        legSupportController2 = gameObject.transform.GetChild(2).GetChild(0).transform.GetComponent<LegSupportController>();
-        pistonController.PistonReturns();
-        legSupportController.LegSupportClosing();
-        legSupportController2.LegSupportClosing();
-        Sequence machineSequenceNext = DOTween.Sequence();
-        machineSequenceNext.Append(transform.DOMoveZ(transform.position.z, machineMovingDuration))
-            .AppendCallback(() =>
-            {
-                legSupportController.LegSupportOpening();
-            })
-            .Append(transform.DOMoveZ(transform.position.z + girderLength, machineMovingDuration).SetDelay(legSupportController.legSupportMovingDuration));
+            legSupportController = GameObject.FindGameObjectWithTag("BackSupport").transform.GetComponent<LegSupportController>();
+            legSupportController2 = gameObject.transform.GetChild(2).GetChild(0).transform.GetComponent<LegSupportController>();
 
-        StartCoroutine(pistonController.PistonMovingDelayed());
+            pistonController.PistonReturns();
+            legSupportController.LegSupportClosing();
+            legSupportController2.LegSupportClosing();
+            legSupportController.LegSupportOpening();
+
+            transform.DOMoveZ(transform.position.z + girderLength, machineMovingDuration).SetDelay(legSupportController.legSupportMovingDuration);
+
+            StartCoroutine(pistonController.PistonMovingDelayed());
         }
 
     }
