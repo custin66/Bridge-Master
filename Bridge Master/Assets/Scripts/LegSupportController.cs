@@ -10,7 +10,7 @@ public class LegSupportController : MonoBehaviour
     [HideInInspector]
     public float legSupportMovingDuration = 1f;
     private float rotationAngle = 90f;
-    private float legSupportOpenedPos = 9.25f;
+    private float legSupportOpenedPos = -2.82f;
     private void Start()
     {
         legSupportLocalPos = transform.localPosition;
@@ -23,7 +23,7 @@ public class LegSupportController : MonoBehaviour
             transform.SetParent(null);
             transform.tag = "BackSupport";
             Sequence legSupportSequenceOpening = DOTween.Sequence();
-            legSupportSequenceOpening.Append(transform.DOLocalRotate(Vector3.right*rotationAngle, legSupportMovingDuration))
+            legSupportSequenceOpening.Append(transform.DOLocalRotate(Vector3.zero, legSupportMovingDuration))
                 .Join(transform.DOLocalMoveY(legSupportOpenedPos, legSupportMovingDuration));
         }
     }

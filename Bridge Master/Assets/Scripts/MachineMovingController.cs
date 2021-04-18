@@ -23,7 +23,7 @@ public class MachineMovingController : MonoBehaviour
     private void Awake()
     {
         pistonController = FindObjectOfType<PistonController>();
-        Instantiate(legSupportPrefab, new Vector3(0f, 10.8f, 60f), legSupportLocalRotation, transform.GetChild(2));
+        Instantiate(legSupportPrefab, new Vector3(0f, 0f, 26f), legSupportLocalRotation, transform.GetChild(2));
     }
 
     void Start()
@@ -48,7 +48,7 @@ public class MachineMovingController : MonoBehaviour
     }
     public void MachineForwardMovingNextStep()
     {
-        Instantiate(legSupportPrefab, new Vector3(0, 10.8f, 60f + nextStep), legSupportLocalRotation, transform.GetChild(2));
+        Instantiate(legSupportPrefab, new Vector3(0, -2.82f, 31f + nextStep), legSupportLocalRotation, transform.GetChild(2));
         if (GameObject.FindGameObjectWithTag("BackSupport") != null || gameObject.transform.GetChild(2).GetChild(0) != null)
         {
             legSupportController = GameObject.FindGameObjectWithTag("BackSupport").transform.GetComponent<LegSupportController>();

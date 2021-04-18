@@ -11,7 +11,7 @@ public class GirderMovements : MonoBehaviour
 
     private GameObject Girder;
 
-    private int girderLocation = 30;
+    private int girderLocation = 20;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class GirderMovements : MonoBehaviour
         machineMovingController.nextStep += 10;
         Girder.transform.SetParent(null);
         Sequence girderSequence = DOTween.Sequence();
-        girderSequence.Append(Girder.transform.DOLocalMoveY(0f,pistonController.pistonDroppingTime))
+        girderSequence.Append(Girder.transform.DOLocalMoveY(-5.7f, pistonController.pistonDroppingTime))
                   .Append(Girder.transform.DOLocalMoveZ(girderLocation, 0.1f));
         girderLocation += 10;
         machineMovingController.MachineForwardMovingNextStep();
