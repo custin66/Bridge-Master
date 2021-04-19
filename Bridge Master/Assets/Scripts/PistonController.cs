@@ -40,7 +40,7 @@ public class PistonController : MonoBehaviour
         yield return new WaitForSeconds(legSupportController.legSupportMovingDuration+machineMovingController.machineMovingDuration);
         PistonMoving();
     }
-    public IEnumerator PistonMovingFirstDelayed()
+    public IEnumerator PistonFirstMoveDelayed()
     {
         yield return new WaitForSeconds(legSupportController.legSupportMovingDuration+machineMovingController.machineMovingDuration*2f);
         PistonMoving();

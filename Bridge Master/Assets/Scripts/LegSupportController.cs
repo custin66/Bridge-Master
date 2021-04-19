@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LegSupportController : MonoBehaviour
 {
-  //  MachineMovingController machineMovingController;
+    //  MachineMovingController machineMovingController;
     private Vector3 legSupportLocalPos;
     [HideInInspector]
     public float legSupportMovingDuration = 1f;
@@ -15,11 +15,24 @@ public class LegSupportController : MonoBehaviour
     {
         legSupportLocalPos = transform.localPosition;
     }
-    public void LegSupportOpening() //Ön ayak açılır
+    public void LegSupportCompareTag() // Tagını kontrol eder
     {
         if (this.gameObject != null)
         {
-          //  machineMovingController = FindObjectOfType<MachineMovingController>();
+            if (transform.CompareTag("BackSupport"))
+            {
+                LegSupportClosing();
+            }
+            else if (transform.CompareTag("FrontSupport"))
+            {
+                LegSupportOpening();
+            }
+        }
+    }
+    void LegSupportOpening() //Ön ayak açılır
+    {
+        if (this.gameObject != null)
+        {
             transform.SetParent(null);
             transform.tag = "BackSupport";
             Sequence legSupportSequenceOpening = DOTween.Sequence();
@@ -27,22 +40,12 @@ public class LegSupportController : MonoBehaviour
                 .Join(transform.DOLocalMoveY(legSupportOpenedPos, legSupportMovingDuration));
         }
     }
-    public void LegSupportClosing() //Ön ayak kapanır
+    void LegSupportClosing() //Ön ayak kapanır
     {
-        if (this.gameObject != null)
-        {
-            if (transform.CompareTag("BackSupport"))
-            {
-                Sequence legSupportSequenceClosing = DOTween.Sequence();
-                legSupportSequenceClosing.Append(transform.DOLocalRotate(Vector3.zero, legSupportMovingDuration))
-                    .Join(transform.DOLocalMove(legSupportLocalPos, legSupportMovingDuration));
-                StartCoroutine(DestroyBackSupport());
-            }
-            else
-            {
-                LegSupportOpening();
-            }
-        }
+        Sequence legSupportSequenceClosing = DOTween.Sequence();
+        legSupportSequenceClosing.Append(transform.DORotate(Vector3.right * rotationAngle, legSupportMovingDuration).SetEase(Ease.Linear))
+            .Join(transform.DOLocalMoveY(0f, legSupportMovingDuration).SetEase(Ease.Linear));
+        StartCoroutine(DestroyBackSupport());
     }
     private IEnumerator DestroyBackSupport()
     {
