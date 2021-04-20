@@ -71,12 +71,12 @@ Material:
     - _EdgeFade: 0.2448298
     - _EnableDepthTexture: 1
     - _FoamDistortion: 0.45
-    - _FoamOpacity: 0.08
+    - _FoamOpacity: 0
     - _FoamSize: 0
     - _FoamSpeed: 0.1
     - _FoamTiling: 0.15
     - _Fresnelexponent: 47.21
-    - _Glossiness: 0.805
+    - _Glossiness: 0.72
     - _Gradient: 0
     - _HighlightPanning: 0
     - _IntersectionDistortion: 0.1
@@ -87,7 +87,7 @@ Material:
     - _MaskClipValue: 0.5
     - _Metallicness: 0.1
     - _NORMAL_MAP: 0
-    - _NormalStrength: 0.341
+    - _NormalStrength: 0.5
     - _NormalTiling: 0.39999992
     - _Pixelate: 0
     - _Pixelize: 0
@@ -116,19 +116,19 @@ Material:
     - _Unlit: 0
     - _UseIntersectionFoam: 1
     - _UseIntersectionHighlight: 1
-    - _WaveFoam: 0.24
-    - _WaveHeight: 0.011
-    - _WaveSize: 0.1
+    - _WaveFoam: 0
+    - _WaveHeight: 0.73
+    - _WaveSize: 0.09
     - _Wavefoam: 1
-    - _Wavesspeed: 0.5
+    - _Wavesspeed: 0.7
     - _Wavesstrength: 0.268
-    - _Wavetint: 0.42
+    - _Wavetint: 0.67
     - _Worldspacetiling: 1
     - __dirty: 0
     m_Colors:
     - _FresnelColor: {r: 0.5, g: 0.8551724, b: 1, a: 0.666}
     - _RimColor: {r: 1, g: 1, b: 1, a: 0.453}
-    - _WaterColor: {r: 0.22530259, g: 0.4307351, b: 0.5754717, a: 0}
+    - _WaterColor: {r: 0.24995552, g: 0.3305373, b: 0.38679248, a: 0}
     - _WaterShallowColor: {r: 0.4190787, g: 1, b: 0.8798174, a: 1}
     - _WaveDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

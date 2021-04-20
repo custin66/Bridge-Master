@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 875976722521205277}
   - component: {fileID: 1055583718545837509}
   - component: {fileID: 5924819281802085414}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LegSupport
   m_TagString: FrontSupport
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4484961331246481646}
   - component: {fileID: 4113810053439322960}
   - component: {fileID: 1918860262204245716}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Leg_Support_Inside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2146194134152462013, guid: 92a81cc7bd3e9474cabace7fcdb5176a, type: 3}
+  - {fileID: 2100000, guid: d196fd0e8fe5e4cb8949b9e522aaa923, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 3328067459887395444}
   - component: {fileID: 2048057293451759045}
   - component: {fileID: 3447442434371560619}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Leg_Support
   m_TagString: Untagged
   m_Icon: {fileID: 0}
