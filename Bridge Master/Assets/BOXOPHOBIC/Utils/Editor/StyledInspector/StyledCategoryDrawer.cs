@@ -16,16 +16,13 @@ namespace Boxophobic.StyledGUI
             a = (StyledCategory)attribute;
 
             GUI.enabled = true;
-            EditorGUI.indentLevel = 0;
 
-            GUILayout.Space(a.top);
-            StyledGUI.DrawInspectorCategory(a.category);
-            GUILayout.Space(a.down);
+            StyledGUI.DrawInspectorCategory(position, a.category);
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            return -2;
+            return 40;
         }
     }
 }
