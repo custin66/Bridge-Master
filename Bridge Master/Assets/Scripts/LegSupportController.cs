@@ -42,13 +42,15 @@ public class LegSupportController : MonoBehaviour
     }
     void LegSupportClosing() //Ön ayak kapanır
     {
-        Sequence legSupportSequenceClosing = DOTween.Sequence();
-        legSupportSequenceClosing.Append(transform.DORotate(Vector3.right * rotationAngle, legSupportMovingDuration).SetEase(Ease.Linear))
-            .Join(transform.DOLocalMoveY(0f, legSupportMovingDuration).SetEase(Ease.Linear));
+        
         StartCoroutine(DestroyBackSupport());
     }
     private IEnumerator DestroyBackSupport()
     {
+        yield return new WaitForSeconds(legSupportMovingDuration);
+        Sequence legSupportSequenceClosing = DOTween.Sequence();
+        legSupportSequenceClosing.Append(transform.DORotate(Vector3.right * rotationAngle, legSupportMovingDuration).SetEase(Ease.Linear))
+            .Join(transform.DOLocalMoveY(0f, legSupportMovingDuration).SetEase(Ease.Linear));
         yield return new WaitForSeconds(legSupportMovingDuration);
         Destroy(gameObject);
     }
