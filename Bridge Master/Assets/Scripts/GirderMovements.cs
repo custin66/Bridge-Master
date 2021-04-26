@@ -36,6 +36,7 @@ public class GirderMovements : MonoBehaviour
                 GirderSitsToBridge();
                 LampGreen();
                 MachineEffectController.Instance.tamOturduParticlePlay();
+                
 
             }
             else
@@ -47,6 +48,10 @@ public class GirderMovements : MonoBehaviour
         }
     }
 
+    void LampDevrim()
+    {
+       
+    }
     void LampRed()
     {
         lampMaterial.color = Color.red;
@@ -56,6 +61,7 @@ public class GirderMovements : MonoBehaviour
         lampMaterial.color = Color.green;
 
     }
+    
     void GirderSitsToBridge()
     {
         machineMovingController.nextStep += 10;
