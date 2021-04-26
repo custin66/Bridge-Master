@@ -60,4 +60,10 @@ public class GirderMovements : MonoBehaviour
         yield return new WaitForSeconds(pistonController.pistonDroppingTime*0.5f);
         pistonController.PistonMoving();
     }
+
+    void LampCan()
+    {
+        Debug.Log("DevrimCan");
+    }
+
 }
