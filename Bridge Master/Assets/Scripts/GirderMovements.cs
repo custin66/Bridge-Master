@@ -9,6 +9,9 @@ public class GirderMovements : MonoBehaviour
     GirderStockController girderStockController;
     PistonController pistonController;
 
+    [SerializeField]
+    Material lampMaterial;
+
     private GameObject Girder;
 
     [HideInInspector]
@@ -33,14 +36,34 @@ public class GirderMovements : MonoBehaviour
             if (Mathf.Abs(transform.GetChild(1).transform.localPosition.x) <= 1f)
             {
                 GirderSitsToBridge();
+                LampGreen();
+                MachineEffectController.Instance.tamOturduParticlePlay();
+                
+
             }
             else
             {
                 pistonController.PistonReturns();
                 StartCoroutine(GirderFellDown());
+                LampRed();
             }
         }
     }
+
+    void LampDevrim()
+    {
+       
+    }
+    void LampRed()
+    {
+        lampMaterial.color = Color.red;
+    }
+    void LampGreen()
+    {
+        lampMaterial.color = Color.green;
+
+    }
+    
     void GirderSitsToBridge()
     {
         machineMovingController.nextStep += 10;

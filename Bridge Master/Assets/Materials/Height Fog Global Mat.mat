@@ -104,11 +104,11 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
+    - _DirectionalColor: {r: 0.68235296, g: 0.9490196, b: 0.89411765, a: 1}
     - _DirectionalDir: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FogAxisOption: {r: 0, g: 1, b: 0, a: 0}
-    - _FogColorEnd: {r: 0.4063695, g: 0.6566076, b: 0.9068457, a: 1}
-    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
+    - _FogColorEnd: {r: 0.68235296, g: 0.9490196, b: 1, a: 1}
+    - _FogColorStart: {r: 0.68235296, g: 0.9490196, b: 1, a: 1}
     - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
   m_BuildTextureStacks: []
