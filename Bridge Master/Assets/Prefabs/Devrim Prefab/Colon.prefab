@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5020950693145552170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Colon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Colon_Mid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115787972641896400, guid: 5b6342c8940c546389f85c11f43bbc48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4221824097885972807, guid: 5b6342c8940c546389f85c11f43bbc48,
         type: 3}
@@ -178,6 +183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Colon_Top
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791873622007979538, guid: b70d1b57c9049442699695ed2dba4c10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3892591768101987927, guid: b70d1b57c9049442699695ed2dba4c10,
         type: 3}

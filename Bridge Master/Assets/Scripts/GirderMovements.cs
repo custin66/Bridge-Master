@@ -34,24 +34,20 @@ public class GirderMovements : MonoBehaviour
             if (Mathf.Abs(transform.GetChild(1).transform.localPosition.x) <= 1f)
             {
                 GirderSitsToBridge();
-                LampGreen();
-                MachineEffectController.Instance.tamOturduParticlePlay();
                 
+                MachineEffectController.Instance.TrueHitParticlePlay();
 
             }
             else
             {
                 pistonController.PistonReturns();
                 StartCoroutine(GirderFellDown());
-                LampRed();
+                
             }
         }
     }
+    
 
-    void LampDevrim()
-    {
-       
-    }
     void LampRed()
     {
         lampMaterial.color = Color.red;
