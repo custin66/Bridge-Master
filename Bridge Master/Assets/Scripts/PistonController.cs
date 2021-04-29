@@ -5,11 +5,12 @@ using DG.Tweening;
 
 public class PistonController : MonoBehaviour
 {
-    MachineMovingController machineMovingController;
-    LegSupportController legSupportController;
+    [SerializeField] MachineMovingController machineMovingController;
+     LegSupportController legSupportController;
 
     [HideInInspector]
     public bool isSwinging = false;
+    public bool isSwinginAI = false;
 
     [SerializeField]
     private float pistonSwingTime, pistonMaxSwingPoint; // pistonun salınım süresi // 1f,3f,1f
@@ -18,8 +19,7 @@ public class PistonController : MonoBehaviour
 
     private void Start()
     {
-        machineMovingController = FindObjectOfType<MachineMovingController>();
-        legSupportController = FindObjectOfType<LegSupportController>();
+        legSupportController = gameObject.transform.parent.GetChild(2).GetChild(0).transform.GetComponent<LegSupportController>();
     }
     public void PistonReturns()
     {
@@ -32,7 +32,7 @@ public class PistonController : MonoBehaviour
     }
     public void PistonMoving() // Kirişi tutan piston sağ sola salınım yapar
     {
-        transform.DOLocalMoveX(-pistonMaxSwingPoint, pistonSwingTime).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);    
+        transform.DOLocalMoveX(-pistonMaxSwingPoint, pistonSwingTime).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
         isSwinging = true;
     }
     public IEnumerator PistonMovingDelayed()

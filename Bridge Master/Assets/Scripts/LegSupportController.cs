@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class LegSupportController : MonoBehaviour
 {
-    //  MachineMovingController machineMovingController;
     private Vector3 legSupportLocalPos;
     [HideInInspector]
     public float legSupportMovingDuration = 1f;
@@ -33,7 +32,7 @@ public class LegSupportController : MonoBehaviour
     {
         if (this.gameObject != null)
         {
-            transform.SetParent(null);
+            transform.SetParent(transform.parent.parent.parent.GetChild(1).gameObject.transform);
             transform.tag = "BackSupport";
             Sequence legSupportSequenceOpening = DOTween.Sequence();
             legSupportSequenceOpening.Append(transform.DOLocalRotate(Vector3.zero, legSupportMovingDuration))
@@ -41,8 +40,7 @@ public class LegSupportController : MonoBehaviour
         }
     }
     void LegSupportClosing() //Ön ayak kapanır
-    {
-        
+    {        
         StartCoroutine(DestroyBackSupport());
     }
     private IEnumerator DestroyBackSupport()

@@ -5,65 +5,65 @@ using UnityEngine;
 
 public class GirderMovements : MonoBehaviour
 {
-    MachineMovingController machineMovingController;
-    GirderStockController girderStockController;
-    PistonController pistonController;
+    [SerializeField] MachineMovingController machineMovingController;
+    [SerializeField] GirderStockController girderStockController;
+    [SerializeField] PistonController pistonController;
+    [SerializeField] TransparentGirderController transparentGirderController;
 
-    [SerializeField]
-    Material lampMaterial;
+    //[SerializeField]
+    //Material lampMaterial;
+
+    [HideInInspector] public int comboCount = 0;
 
     private GameObject Girder;
+    [HideInInspector]
+    public bool successedPlayer,successedAI = false;
 
     [HideInInspector]
     public float girderLocation = 20f;
 
-    private void Awake()
-    {
-        machineMovingController = FindObjectOfType<MachineMovingController>();
-        girderStockController = FindObjectOfType<GirderStockController>();
-        pistonController = FindObjectOfType<PistonController>();
-    }
     public void TimingControl() // Tap timing mekanizmasını kontrol eder
     {
         if (pistonController.isSwinging)
         {
             Girder = transform.GetChild(1).GetChild(1).gameObject;
-            //Girder.transform.localScale = Vector3.one;
-            
+
             pistonController.isSwinging = false;
             StartCoroutine(girderStockController.GirderStockBringingDelayed());
 
-            if (Mathf.Abs(transform.GetChild(1).transform.localPosition.x) <= 1f)
+            if (successedPlayer || successedAI)
             {
                 GirderSitsToBridge();
-                LampGreen();
-                MachineEffectController.Instance.tamOturduParticlePlay();
-                
-
+                //LampGreen();
+                //  MachineEffectController.Instance.tamOturduParticlePlay();
+                comboCount++;
             }
             else
             {
                 pistonController.PistonReturns();
                 StartCoroutine(GirderFellDown());
-                LampRed();
+                // LampRed();
+                comboCount = 0;
             }
+            machineMovingController.SetCombo();
         }
     }
 
     void LampDevrim()
     {
-       
-    }
-    void LampRed()
-    {
-        lampMaterial.color = Color.red;
-    }
-    void LampGreen()
-    {
-        lampMaterial.color = Color.green;
+
 
     }
-    
+    //void LampRed()
+    //{
+    //    lampMaterial.color = Color.red;
+    //}
+    //void LampGreen()
+    //{
+    //    lampMaterial.color = Color.green;
+
+    //}
+
     void GirderSitsToBridge()
     {
         machineMovingController.nextStep += 10;
@@ -73,6 +73,7 @@ public class GirderMovements : MonoBehaviour
                   .Append(Girder.transform.DOLocalMoveZ(girderLocation, 0.1f));
         girderLocation += 10f;
         machineMovingController.MachineForwardMovingNextStep();
+        transparentGirderController.MoveTransparentGirder();
     }
     IEnumerator GirderFellDown()
     {
@@ -80,13 +81,7 @@ public class GirderMovements : MonoBehaviour
         Girder.transform.SetParent(null);
         girderStockController.girderRigidBody.isKinematic = false;
         girderStockController.girderBoxCollider.isTrigger = true;
-        yield return new WaitForSeconds(pistonController.pistonDroppingTime*0.5f);
+        yield return new WaitForSeconds(pistonController.pistonDroppingTime * 0.5f);
         pistonController.PistonMoving();
     }
-
-    void LampCan()
-    {
-        Debug.Log("DevrimCan");
-    }
-
 }
