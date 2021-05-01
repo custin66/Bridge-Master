@@ -6446,7 +6446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   girderMovements: {fileID: 1812714002}
-  successRate: 53
+  successRate: 100
   AILoopTime: 3
 --- !u!114 &1812714002
 MonoBehaviour:
