@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class GirderStockController : MonoBehaviour
 {
-    PistonController pistonController;
+    [SerializeField] PistonController pistonController;
+    [SerializeField] GirderMovements girderMovements;
 
     [SerializeField]
-    private List<GameObject> Girders = new List<GameObject>();
+    GameObject Girder;
 
     [HideInInspector]
     public Rigidbody girderRigidBody;
     public BoxCollider girderBoxCollider;
     private Vector3 girderLocalPos;
+    public Quaternion girderLocalRotation;
     private void Awake()
     {
-        pistonController = FindObjectOfType<PistonController>();
         girderLocalPos = transform.parent.GetChild(1).GetChild(1).transform.localPosition;
         girderRigidBody = transform.parent.GetChild(1).GetChild(1).GetComponent<Rigidbody>();
         girderBoxCollider = transform.parent.GetChild(1).GetChild(1).GetComponent<BoxCollider>();
     }
 
-    public void GirderStockBringing() // Stoktaki kirişlerden birini makinenin kucağına ışınlar
+    public void GirderStockBringing() // makinenin pistonuna yeni kiriş doğurur
     {
-        Girders[Girders.Count - 1].transform.SetParent(transform.parent.GetChild(1).transform);
-        Girders[Girders.Count - 1].transform.localPosition = girderLocalPos; // smooth hareket ayarlanacak
+        Instantiate(Girder, girderLocalPos, girderLocalRotation, transform.parent.GetChild(1).transform);
+        transform.parent.GetChild(1).GetChild(1).transform.localScale = Vector3.one;
+        transform.parent.GetChild(1).GetChild(1).transform.localPosition = girderLocalPos;
         girderRigidBody = transform.parent.GetChild(1).GetChild(1).GetComponent<Rigidbody>();
         girderBoxCollider = transform.parent.GetChild(1).GetChild(1).GetComponent<BoxCollider>();
-        Girders.RemoveAt(Girders.Count - 1);
     }
     public IEnumerator GirderStockBringingDelayed()
     {
-        yield return new WaitForSeconds(pistonController.pistonDroppingTime*2f);
+        yield return new WaitForSeconds(pistonController.pistonDroppingTime * 2f);
         GirderStockBringing();
     }
 }

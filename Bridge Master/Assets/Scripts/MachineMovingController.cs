@@ -6,14 +6,18 @@ using UnityEngine;
 public class MachineMovingController : MonoBehaviour
 {
     LegSupportController legSupportController, legSupportController2;
-    PistonController pistonController;
+    [SerializeField] PistonController pistonController;
+    [SerializeField] GirderMovements girderMovements;
 
+   // [SerializeField] private GameObject legSupportsParent;
     public GameObject legSupportPrefab;
     public Quaternion legSupportLocalRotation;
+    [SerializeField] private int legSupportLayer;
 
     [HideInInspector]
     public float nextStep; // 10f
     public float machineMovingDuration; //2f
+    private float maxDuration; //2f
 
     [SerializeField]
     private float girderLength; //10f 
@@ -21,8 +25,9 @@ public class MachineMovingController : MonoBehaviour
 
     private void Awake()
     {
-        pistonController = FindObjectOfType<PistonController>();
-        Instantiate(legSupportPrefab, new Vector3(0f, 0f, 26f), legSupportLocalRotation, transform.GetChild(2));
+        Instantiate(legSupportPrefab, new Vector3(transform.position.x, 0f, 26f), legSupportLocalRotation, transform.GetChild(2));
+        legSupportPrefab.layer = legSupportLayer;
+        maxDuration = machineMovingDuration;
     }
 
     void Start()
@@ -47,20 +52,24 @@ public class MachineMovingController : MonoBehaviour
     }
     public void MachineForwardMovingNextStep() //Makine 1 adım ileri gider
     {
-        Instantiate(legSupportPrefab, new Vector3(0, -2.82f, 26f + nextStep), legSupportLocalRotation, transform.GetChild(2));
+        Instantiate(legSupportPrefab, new Vector3(transform.position.x, -2.82f, 26f + nextStep), legSupportLocalRotation, transform.GetChild(2));
+        legSupportPrefab.layer = legSupportLayer;
         if (GameObject.FindGameObjectWithTag("BackSupport") != null || gameObject.transform.GetChild(2).GetChild(0) != null)
-        {
-            legSupportController = GameObject.FindGameObjectWithTag("BackSupport").transform.GetComponent<LegSupportController>();
+        {           
+            legSupportController = gameObject.transform.parent.GetChild(1).GetChild(0).transform.GetComponent<LegSupportController>();
             legSupportController2 = gameObject.transform.GetChild(2).GetChild(0).transform.GetComponent<LegSupportController>();
 
             pistonController.PistonReturns();
             legSupportController.LegSupportCompareTag();
-            legSupportController2.LegSupportCompareTag();           
+            legSupportController2.LegSupportCompareTag();
 
             transform.DOMoveZ(transform.position.z + girderLength, machineMovingDuration).SetDelay(legSupportController.legSupportMovingDuration);
 
             StartCoroutine(pistonController.PistonMovingDelayed());
         }
-
+    }
+    public void SetCombo()
+    {         
+            machineMovingDuration = maxDuration- girderMovements.comboCount * 0.1f;        
     }
 }

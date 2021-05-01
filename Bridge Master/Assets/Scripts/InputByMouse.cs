@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class InputByMouse : MonoBehaviour
 {
-    GirderMovements girderMovements;
+    [SerializeField] GirderMovements girderMovements;
 
-    private void Awake()
-    {
-        girderMovements = FindObjectOfType<GirderMovements>();
-    }
     void Update()
     {
         GirderDropping();
@@ -18,6 +14,11 @@ public class InputByMouse : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            girderMovements.successedPlayer = false;
+            if(Mathf.Abs(transform.GetChild(1).transform.localPosition.x) <= 1f)
+            {
+                girderMovements.successedPlayer = true;
+            }
             girderMovements.TimingControl();
         }
     }

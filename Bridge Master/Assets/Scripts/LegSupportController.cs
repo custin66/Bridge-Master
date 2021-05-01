@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class LegSupportController : MonoBehaviour
 {
-    //  MachineMovingController machineMovingController;
     private Vector3 legSupportLocalPos;
     [HideInInspector]
     public float legSupportMovingDuration = 1f;
@@ -33,7 +32,7 @@ public class LegSupportController : MonoBehaviour
     {
         if (this.gameObject != null)
         {
-            transform.SetParent(null);
+            transform.SetParent(transform.parent.parent.parent.GetChild(1).gameObject.transform);
             transform.tag = "BackSupport";
             Sequence legSupportSequenceOpening = DOTween.Sequence();
             legSupportSequenceOpening.Append(transform.DOLocalRotate(Vector3.zero, legSupportMovingDuration))
@@ -41,14 +40,15 @@ public class LegSupportController : MonoBehaviour
         }
     }
     void LegSupportClosing() //Ön ayak kapanır
-    {
-        Sequence legSupportSequenceClosing = DOTween.Sequence();
-        legSupportSequenceClosing.Append(transform.DORotate(Vector3.right * rotationAngle, legSupportMovingDuration).SetEase(Ease.Linear))
-            .Join(transform.DOLocalMoveY(0f, legSupportMovingDuration).SetEase(Ease.Linear));
+    {        
         StartCoroutine(DestroyBackSupport());
     }
     private IEnumerator DestroyBackSupport()
     {
+        yield return new WaitForSeconds(legSupportMovingDuration);
+        Sequence legSupportSequenceClosing = DOTween.Sequence();
+        legSupportSequenceClosing.Append(transform.DORotate(Vector3.right * rotationAngle, legSupportMovingDuration).SetEase(Ease.Linear))
+            .Join(transform.DOLocalMoveY(0f, legSupportMovingDuration).SetEase(Ease.Linear));
         yield return new WaitForSeconds(legSupportMovingDuration);
         Destroy(gameObject);
     }
