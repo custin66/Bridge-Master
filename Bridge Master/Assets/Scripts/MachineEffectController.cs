@@ -35,14 +35,11 @@ public class MachineEffectController : MonoBehaviour
     // Start is called before the first frame update
 
 
-public void tamOturduParticlePlay()
+public void TrueHitParticlePlay()
     {
         tamOturduParticle.GetComponent<ParticleSystem>().Play();
-        Debug.Log("s");
+        
     }
-public void tamOturduParticleStop()
-    {
-        tamOturduParticle.GetComponent<ParticleSystem>().Stop();
-    }
+
 
 }
