@@ -9,6 +9,7 @@ public class GirderMovements : MonoBehaviour
     [SerializeField] GirderStockController girderStockController;
     [SerializeField] PistonController pistonController;
     [SerializeField] TransparentGirderController transparentGirderController;
+    [SerializeField] MachineEffectController machineEffectController;
 
     //[SerializeField]
     //Material lampMaterial;
@@ -35,6 +36,7 @@ public class GirderMovements : MonoBehaviour
             {
                 GirderSitsToBridge();
                 //LampGreen();
+                machineEffectController.TrueHitParticlePlay();
                 //  MachineEffectController.Instance.tamOturduParticlePlay();
                 comboCount++;
             }
