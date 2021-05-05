@@ -4,42 +4,42 @@ using UnityEngine;
 
 public class MachineEffectController : MonoBehaviour
 {
-    #region Singleton
+    //#region Singleton
 
-    private static MachineEffectController instance = null;
+    //private static MachineEffectController instance = null;
 
-    // Game Instance Singleton
-    public static MachineEffectController Instance
-    {
-        get
-        {
-            return instance;
-        }
-    }
+    //// Game Instance Singleton
+    //public static MachineEffectController Instance
+    //{
+    //    get
+    //    {
+    //        return instance;
+    //    }
+    //}
 
-    private void Awake()
-    {
-        // if the singleton hasn't been initialized yet
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-        }
+    //private void Awake()
+    //{
+    //    // if the singleton hasn't been initialized yet
+    //    if (instance != null && instance != this)
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
 
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
-    }
-    #endregion
+    //    instance = this;
+    //    DontDestroyOnLoad(this.gameObject);
+    //}
+    //#endregion
 
 
     [SerializeField] GameObject tamOturduParticle;
-    // Start is called before the first frame update
+    private ParticleSystem particleSystem;
 
-
-public void TrueHitParticlePlay()
+    void Awake()
     {
-        tamOturduParticle.GetComponent<ParticleSystem>().Play();
-        
+        particleSystem = tamOturduParticle.GetComponent<ParticleSystem>();
     }
-
-
+    public void TrueHitParticlePlay()
+    {
+        particleSystem.Play();
+    }
 }

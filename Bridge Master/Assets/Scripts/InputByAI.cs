@@ -26,8 +26,26 @@ public class InputByAI : MonoBehaviour
         {
             girderMovements.successedAI = true;
         }
-        girderMovements.TimingControl();
+            if (girderMovements.successedAI)
+            {
+                StartCoroutine(TrueHitByAI());
+            }
+            else
+            {
+                StartCoroutine(FalseHitByAI());
+            }
         }
+    }
+
+    IEnumerator TrueHitByAI()
+    {
+        yield return new WaitUntil(() => Mathf.Abs(transform.GetChild(1).transform.localPosition.x) <= 0.75f);
+        girderMovements.TimingControl();
+    } 
+    IEnumerator FalseHitByAI()
+    {
+        yield return new WaitUntil(() => Mathf.Abs(transform.GetChild(1).transform.localPosition.x) > 1.5f);
+        girderMovements.TimingControl();
     }
     
 }
