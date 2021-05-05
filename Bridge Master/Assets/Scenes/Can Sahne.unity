@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: edff34ace65a9d64e916017c953856c5,
+    type: 2}
   m_LightingSettings: {fileID: 1011161907}
 --- !u!196 &4
 NavMeshSettings:
@@ -3203,7 +3204,7 @@ LightingSettings:
   m_Name: Settings.lighting
   serializedVersion: 3
   m_GIWorkflowMode: 1
-  m_EnableBakedLightmaps: 1
+  m_EnableBakedLightmaps: 0
   m_EnableRealtimeLightmaps: 0
   m_RealtimeEnvironmentLighting: 1
   m_BounceScale: 1
@@ -5971,6 +5972,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3318648621845171103, guid: d4ba0dd5084946b4a8f451424ba5efe4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d196fd0e8fe5e4cb8949b9e522aaa923, type: 2}
     - target: {fileID: 5792682424486537709, guid: d4ba0dd5084946b4a8f451424ba5efe4,
         type: 3}
       propertyPath: TransparentGirder
@@ -6036,6 +6042,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7809841660113997654, guid: d4ba0dd5084946b4a8f451424ba5efe4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d196fd0e8fe5e4cb8949b9e522aaa923, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ba0dd5084946b4a8f451424ba5efe4, type: 3}
 --- !u!1001 &6825628937872457721
