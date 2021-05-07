@@ -667,6 +667,7 @@ GameObject:
   - component: {fileID: 7257125323416831933}
   - component: {fileID: 5792682424486537709}
   - component: {fileID: 5792682424486537708}
+  - component: {fileID: 919132148772375384}
   m_Layer: 3
   m_Name: "Fil Merkezlenmis\u0327"
   m_TagString: Untagged
@@ -776,6 +777,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tamOturduParticle: {fileID: 3783077653976579794}
+--- !u!114 &919132148772375384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5792682424486537710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1c75a206d99d14f9e2c5b8a2f4bb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PathSlider: {fileID: 0}
 --- !u!1 &5792682424651675997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,15 +2061,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4167cf0f23e5146b9b4f1e18294df850, type: 3}
---- !u!1 &3783077653976579794 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6644828167115808343, guid: 4167cf0f23e5146b9b4f1e18294df850,
-    type: 3}
-  m_PrefabInstance: {fileID: 7545531681890852997}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2303460830835128503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8593031357565458482, guid: 4167cf0f23e5146b9b4f1e18294df850,
+    type: 3}
+  m_PrefabInstance: {fileID: 7545531681890852997}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3783077653976579794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6644828167115808343, guid: 4167cf0f23e5146b9b4f1e18294df850,
     type: 3}
   m_PrefabInstance: {fileID: 7545531681890852997}
   m_PrefabAsset: {fileID: 0}
