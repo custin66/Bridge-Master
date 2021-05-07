@@ -21,14 +21,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Kolon
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: ccfc7d68845db8341944b3091b59be55, type: 3}
+  m_ShaderKeywords: _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -121,8 +120,8 @@ Material:
     - _RampThreshold: 0.547
     - _ReceiveShadows: 1
     - _Shininess: 0.07
-    - _Smoothness: 0.5
-    - _SmoothnessTextureChannel: 0
+    - _Smoothness: 0
+    - _SmoothnessTextureChannel: 1
     - _SpecSmooth: 0.05
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -134,8 +133,8 @@ Material:
     - _ZSmooth: -0.5
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.16981131, g: 0.14498042, b: 0.14498042, a: 1}
-    - _Color: {r: 0.48516044, g: 0.25698647, b: 0.5188679, a: 1}
+    - _BaseColor: {r: 0.7075472, g: 0.6574849, b: 0.6574849, a: 1}
+    - _Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
