@@ -15,14 +15,19 @@ public class GirderMovements : MonoBehaviour
     //Material lampMaterial;
 
     [HideInInspector] public int comboCount = 0;
+    [SerializeField] private int bridgeCount;
 
     private GameObject Girder;
     [HideInInspector]
-    public bool successedPlayer,successedAI = false;
+    public bool successedPlayer, successedAI = false;
 
     [HideInInspector]
     public float girderLocation = 20f;
 
+    void Update()
+    {
+        FinishControl();
+    }
     public void TimingControl() // Tap timing mekanizmasını kontrol eder
     {
         if (pistonController.isSwinging)
@@ -39,6 +44,7 @@ public class GirderMovements : MonoBehaviour
                 machineEffectController.TrueHitParticlePlay();
                 //  MachineEffectController.Instance.tamOturduParticlePlay();
                 comboCount++;
+                bridgeCount--;
             }
             else
             {
@@ -85,5 +91,20 @@ public class GirderMovements : MonoBehaviour
         girderStockController.girderBoxCollider.isTrigger = true;
         yield return new WaitForSeconds(pistonController.pistonDroppingTime * 0.5f);
         pistonController.PistonMoving();
+    }
+    void FinishControl()
+    {
+        if (bridgeCount == 0)
+        {
+            if (gameObject.layer == 3)
+            {
+                UIManager.Instance.OpenFinishPanel();
+            }
+            else if (gameObject.layer == 6)
+            {
+                UIManager.Instance.OpenReplayPanel();
+
+            }
+        }
     }
 }

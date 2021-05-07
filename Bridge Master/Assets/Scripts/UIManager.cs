@@ -26,10 +26,12 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject finishGamePanel, startGamePanel, replayGamePanel;
 
+    public bool startGame = false;
+
     public void StartGame()
     {
         startGamePanel.SetActive(false);
-        
+        startGame = true;
     }
 
     public void NextLevel()
@@ -42,10 +44,12 @@ public class UIManager : MonoBehaviour
     public void OpenFinishPanel()
     {
         finishGamePanel.SetActive(true);
+        Time.timeScale = 0;
     }
     public void OpenReplayPanel()
     {
         replayGamePanel.SetActive(true);
+        Time.timeScale = 0;
     }
     public void Replay()
     {

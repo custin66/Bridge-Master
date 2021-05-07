@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class MachineMovingController : MonoBehaviour
 {
+
     LegSupportController legSupportController, legSupportController2;
     [SerializeField] PistonController pistonController;
     [SerializeField] GirderMovements girderMovements;
 
-   // [SerializeField] private GameObject legSupportsParent;
+    // [SerializeField] private GameObject legSupportsParent;
     public GameObject legSupportPrefab;
     public Quaternion legSupportLocalRotation;
     [SerializeField] private int legSupportLayer;
@@ -33,8 +34,9 @@ public class MachineMovingController : MonoBehaviour
     void Start()
     {
         nextStep = transform.position.z + girderLength;
-        MachineFirstMove();
+        StartCoroutine(StartMachine());
     }
+
 
     public void MachineFirstMove() // Makine ilk yürüyüşünü yapar
     {
@@ -55,7 +57,7 @@ public class MachineMovingController : MonoBehaviour
         Instantiate(legSupportPrefab, new Vector3(transform.position.x, -2.82f, 26f + nextStep), legSupportLocalRotation, transform.GetChild(2));
         legSupportPrefab.layer = legSupportLayer;
         if (GameObject.FindGameObjectWithTag("BackSupport") != null || gameObject.transform.GetChild(2).GetChild(0) != null)
-        {           
+        {
             legSupportController = gameObject.transform.parent.GetChild(1).GetChild(0).transform.GetComponent<LegSupportController>();
             legSupportController2 = gameObject.transform.GetChild(2).GetChild(0).transform.GetComponent<LegSupportController>();
 
@@ -69,7 +71,13 @@ public class MachineMovingController : MonoBehaviour
         }
     }
     public void SetCombo()
-    {         
-            machineMovingDuration = maxDuration- girderMovements.comboCount * 0.1f;        
+    {
+        machineMovingDuration = maxDuration - girderMovements.comboCount * 0.1f;
+    }
+
+    private IEnumerator StartMachine()
+    {
+        yield return new WaitUntil(() => UIManager.Instance.startGame);
+        MachineFirstMove();
     }
 }
