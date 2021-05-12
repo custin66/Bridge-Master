@@ -6,16 +6,21 @@ public class TransparentGirderController : MonoBehaviour
 {
     [SerializeField] GirderStockController girderStockController;
     [SerializeField] GirderMovements girderMovements;
-   // [SerializeField] Material RedMat, GreenMat;
+    [SerializeField] Material RedMat, GreenMat;
 
-    [SerializeField] GameObject TransparentGirder;
+    // [SerializeField] GameObject TransparentGirder;
 
-     private Material TransparentMat;
-     private Material TransparentMatUst;
-    void Awake()
+    private Material TransparentMat;
+    private Material TransparentMatUst;
+    [SerializeField] Material GirderMat;
+
+    [HideInInspector] public bool originalMaterial = false;
+    void Start()
     {
-        TransparentMat = TransparentGirder.GetComponent<MeshRenderer>().material;
-        TransparentMatUst = TransparentGirder.transform.GetChild(0).GetComponent<MeshRenderer>().material;
+        // GirderMat = transform.GetChild(1).GetChild(1).GetComponent<Renderer>().material;
+
+        //TransparentMat = TransparentGirder.GetComponent<MeshRenderer>().material;
+        //TransparentMatUst = TransparentGirder.transform.GetChild(0).GetComponent<MeshRenderer>().material;
     }
 
     void Update()
@@ -24,21 +29,27 @@ public class TransparentGirderController : MonoBehaviour
     }
     public void MoveTransparentGirder()
     {
-        TransparentGirder.transform.localPosition = new Vector3(0f, -5.7f, girderMovements.girderLocation);
+        //  TransparentGirder.transform.localPosition = new Vector3(0f, -5.7f, girderMovements.girderLocation);
     }
 
     void ColorChanging()
     {
-        if (Mathf.Abs(transform.GetChild(1).transform.localPosition.x) <= 1f)
+        if (transform.GetChild(1).childCount > 1)
         {
-            TransparentMat.color = Color.green;
-            TransparentMatUst.color = Color.green;
+            if (Mathf.Abs(transform.GetChild(1).transform.localPosition.x) <= 1f && !originalMaterial)
+            {
+                transform.GetChild(1).GetChild(1).GetComponent<Renderer>().material = GreenMat;
+            }
+            else if (Mathf.Abs(transform.GetChild(1).transform.localPosition.x) > 1f && !originalMaterial)
+            {
+                transform.GetChild(1).GetChild(1).GetComponent<Renderer>().material = RedMat;
+            }
         }
-        else
-        {
-            TransparentMat.color = Color.red;
-            TransparentMatUst.color = Color.red;
-        }
+    }
+    public void BackToOriginalMaterial()
+    {
+        transform.GetChild(1).GetChild(1).GetComponent<Renderer>().material = GirderMat;
+        originalMaterial = true;
     }
 
 

@@ -11,18 +11,19 @@ public class GirderMovements : MonoBehaviour
     [SerializeField] TransparentGirderController transparentGirderController;
     [SerializeField] MachineEffectController machineEffectController;
 
-    //[SerializeField]
-    //Material lampMaterial;
-
     [HideInInspector] public int comboCount = 0;
     [SerializeField] private int bridgeCount;
 
-    private GameObject Girder;
-    [HideInInspector]
-    public bool successedPlayer, successedAI = false;
+    [HideInInspector] public GameObject Girder;
+    [HideInInspector] public bool successedPlayer, successedAI = false;
 
     [HideInInspector]
     public float girderLocation = 20f;
+
+    void Awake()
+    {
+        girderStockController.GirderStockBringing();
+    }
 
     void Update()
     {
@@ -39,10 +40,9 @@ public class GirderMovements : MonoBehaviour
 
             if (successedPlayer || successedAI)
             {
+                transparentGirderController.BackToOriginalMaterial();
                 GirderSitsToBridge();
-                //LampGreen();
                 machineEffectController.TrueHitParticlePlay();
-                //  MachineEffectController.Instance.tamOturduParticlePlay();
                 comboCount++;
                 bridgeCount--;
             }
@@ -50,28 +50,11 @@ public class GirderMovements : MonoBehaviour
             {
                 pistonController.PistonReturns();
                 StartCoroutine(GirderFellDown());
-                // LampRed();
                 comboCount = 0;
             }
             machineMovingController.SetCombo();
         }
     }
-
-    void LampDevrim()
-    {
-
-
-    }
-    //void LampRed()
-    //{
-    //    lampMaterial.color = Color.red;
-    //}
-    //void LampGreen()
-    //{
-    //    lampMaterial.color = Color.green;
-
-    //}
-
     void GirderSitsToBridge()
     {
         machineMovingController.nextStep += 10;
@@ -81,10 +64,12 @@ public class GirderMovements : MonoBehaviour
                   .Append(Girder.transform.DOLocalMoveZ(girderLocation, 0.1f));
         girderLocation += 10f;
         machineMovingController.MachineForwardMovingNextStep();
-        transparentGirderController.MoveTransparentGirder();
+        transparentGirderController.originalMaterial = false;
     }
     IEnumerator GirderFellDown()
     {
+       // transparentGirderController.BackToOriginalMaterial();
+       // transparentGirderController.originalMaterial = false;
         yield return new WaitForSeconds(pistonController.pistonDroppingTime);
         Girder.transform.SetParent(null);
         girderStockController.girderRigidBody.isKinematic = false;
