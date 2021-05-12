@@ -4,18 +4,19 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Building2
   m_Shader: {fileID: 4800000, guid: 7f50d1ec77e2cc9459ca9d36924ffc53, type: 3}
   m_ShaderKeywords: BACKSOLID BOTTOMSOLID COLORCORRECTION_ON FRONTSOLID LEFTSOLID
-    RIGHTGRADIENT RIGHTSOLD TOPSOLID _AOUV_UV0 _COLORCORRECTIONENABLE_ON _GRADIENTSPACE_WORLD_SPACE
-    _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL _GRADSETTINGS_F_USE_GLOBAL
-    _GRADSETTINGS_L_USE_GLOBAL _GRADSETTINGS_R_CUSTOM _GRADSETTINGS_T_USE_GLOBAL _LMAPBLENDINGMODE_AO
-    _MODE_OPAQUE _SHADING_B_SOLID_COLOR _SHADING_D_SOLID_COLOR _SHADING_F_SOLIDCOLOR
-    _SHADING_L_SOLID_COLOR _SHADING_R_GRADIENT _SHADING_T_SOLID_COLOR _SHOWBACK_ON
-    _SHOWBOTTOM_ON _SHOWCOLORCORRECTION_ON _SHOWCUSTOMSHADING_ON _SHOWFRONT_ON _SHOWLEFT_ON
-    _SHOWLMAP_ON _SHOWRIGHT_ON _SHOWTOP_ON
+    RIGHTGRADIENT RIGHTSOLD RIGHTSOLID TOPSOLID _AOUV_UV0 _COLORCORRECTIONENABLE_ON
+    _GRADIENTSPACE_WORLD_SPACE _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL
+    _GRADSETTINGS_F_USE_GLOBAL _GRADSETTINGS_L_USE_GLOBAL _GRADSETTINGS_R_CUSTOM
+    _GRADSETTINGS_T_USE_GLOBAL _LMAPBLENDINGMODE_AO _MODE_OPAQUE _SHADING_B_SOLID_COLOR
+    _SHADING_D_SOLID_COLOR _SHADING_F_SOLIDCOLOR _SHADING_L_SOLID_COLOR _SHADING_R_GRADIENT
+    _SHADING_T_SOLID_COLOR _SHOWBACK_ON _SHOWBOTTOM_ON _SHOWCOLORCORRECTION_ON _SHOWCUSTOMSHADING_ON
+    _SHOWFRONT_ON _SHOWLEFT_ON _SHOWLMAP_ON _SHOWRIGHT_ON _SHOWTOP_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -130,6 +131,8 @@ Material:
     - _Shading_L: 1
     - _Shading_R: 2
     - _Shading_T: 1
+    - _ShadowBlend: 0
+    - _ShadowInfluence: 0
     - _ShowAO: 0
     - _ShowAmbientSettings: 0
     - _ShowBack: 1
@@ -150,6 +153,7 @@ Material:
     - _UVSec: 0
     - _UnityFogEnable: 0
     - _ZWrite: 1
+    - _ZWriteOverride: 0
     m_Colors:
     - _AOColor: {r: 1, g: 1, b: 1, a: 1}
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
@@ -159,7 +163,7 @@ Material:
     - _Color1_F: {r: 0.10510382, g: 0.20724912, b: 0.2647059, a: 1}
     - _Color1_L: {r: 0.2627451, g: 0.4156863, b: 0.54509807, a: 1}
     - _Color1_R: {r: 0.25490198, g: 0.34901962, b: 0.62352943, a: 1}
-    - _Color1_T: {r: 0.3921569, g: 0.67058825, b: 0.7058824, a: 1}
+    - _Color1_T: {r: 0.4783731, g: 0.7738641, b: 0.8113208, a: 1}
     - _Color2_B: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_D: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_F: {r: 1, g: 1, b: 1, a: 1}
@@ -185,3 +189,4 @@ Material:
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
     - _TintColor: {r: 0.55983764, g: 0.5441177, b: 1, a: 1}
+  m_BuildTextureStacks: []

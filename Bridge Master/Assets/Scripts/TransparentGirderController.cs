@@ -6,7 +6,7 @@ public class TransparentGirderController : MonoBehaviour
 {
     [SerializeField] GirderStockController girderStockController;
     [SerializeField] GirderMovements girderMovements;
-   // [SerializeField] Material RedMat, GreenMat;
+    [SerializeField] Color positiveColor, negativeColor;
 
     [SerializeField] GameObject TransparentGirder;
 
@@ -31,13 +31,13 @@ public class TransparentGirderController : MonoBehaviour
     {
         if (Mathf.Abs(transform.GetChild(1).transform.localPosition.x) <= 1f)
         {
-            TransparentMat.color = Color.green;
-            TransparentMatUst.color = Color.green;
+            TransparentMat.color = positiveColor;
+            TransparentMatUst.color = positiveColor;
         }
         else
         {
-            TransparentMat.color = Color.red;
-            TransparentMatUst.color = Color.red;
+            TransparentMat.color = negativeColor;
+            TransparentMatUst.color = negativeColor;
         }
     }
 
