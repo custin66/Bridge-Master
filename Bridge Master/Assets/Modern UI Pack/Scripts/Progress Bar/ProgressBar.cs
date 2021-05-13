@@ -6,6 +6,8 @@ namespace Michsky.UI.ModernUIPack
 {
     public class ProgressBar : MonoBehaviour
     {
+
+        [SerializeField] GirderMovements girderMovements;
         // Content
         [Range(0, 100)] public float currentPercent;
         [Range(0, 100)] public int speed;
@@ -21,10 +23,11 @@ namespace Michsky.UI.ModernUIPack
 
         void Start()
         {
+            girderMovements = FindObjectOfType<GirderMovements>();
             if (isOn == false)
             {
                 loadingBar.fillAmount = currentPercent / 100;
-                textPercent.text = ((int)currentPercent).ToString("F0") + "%";
+               // textPercent.text = ((int)currentPercent).ToString("F0") + "%";
             }
         }
 
@@ -45,14 +48,16 @@ namespace Michsky.UI.ModernUIPack
                     currentPercent = 100;
 
                 loadingBar.fillAmount = currentPercent / 100;
-                textPercent.text = ((int)currentPercent).ToString("F0") + "%";
+               // textPercent.text = ((int)currentPercent).ToString("F0") + "%";
             }
+            UpdateUI();
         }
 
         public void UpdateUI()
         {
             loadingBar.fillAmount = currentPercent / 100;
-            textPercent.text = ((int)currentPercent).ToString("F0") + "%";
+            textPercent.text = "X" + ((int)girderMovements.comboCount).ToString("F0");
+            // textPercent.text = ((int)currentPercent).ToString("F0") + "%";
         }
     }
 }

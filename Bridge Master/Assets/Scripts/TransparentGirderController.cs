@@ -42,7 +42,7 @@ public class TransparentGirderController : MonoBehaviour
             }
             else if (Mathf.Abs(transform.GetChild(1).transform.localPosition.x) > 1f && !originalMaterial)
             {
-                transform.GetChild(1).GetChild(1).GetComponent<Renderer>().material = RedMat;
+                transform.GetChild(1).GetChild(1).GetComponent<Renderer>().material = GirderMat;
             }
         }
     }

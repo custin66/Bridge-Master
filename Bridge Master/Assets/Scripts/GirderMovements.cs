@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Michsky.UI.ModernUIPack;
 
 public class GirderMovements : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GirderMovements : MonoBehaviour
 
     [HideInInspector] public int comboCount = 0;
     [SerializeField] private int bridgeCount;
+    [SerializeField] private GameObject ComboBarSlider;
+    [SerializeField] private GameObject FracturedGirder;
+    [SerializeField] private ProgressBar myBar;
 
     [HideInInspector] public GameObject Girder;
     [HideInInspector] public bool successedPlayer, successedAI = false;
@@ -28,6 +32,7 @@ public class GirderMovements : MonoBehaviour
     void Update()
     {
         FinishControl();
+        ComboBarController();
     }
     public void TimingControl() // Tap timing mekanizmasını kontrol eder
     {
@@ -44,6 +49,10 @@ public class GirderMovements : MonoBehaviour
                 GirderSitsToBridge();
                 machineEffectController.TrueHitParticlePlay();
                 comboCount++;
+                if (myBar != null)
+                {
+                    myBar.currentPercent = 100f;
+                }
                 bridgeCount--;
             }
             else
@@ -68,13 +77,15 @@ public class GirderMovements : MonoBehaviour
     }
     IEnumerator GirderFellDown()
     {
-       // transparentGirderController.BackToOriginalMaterial();
-       // transparentGirderController.originalMaterial = false;
+        // transparentGirderController.BackToOriginalMaterial();
+        // transparentGirderController.originalMaterial = false;
         yield return new WaitForSeconds(pistonController.pistonDroppingTime);
-        Girder.transform.SetParent(null);
+        Instantiate(FracturedGirder, Girder.transform.position, Quaternion.identity);
+        Destroy(Girder.gameObject);
+        //Girder.transform.SetParent(null);
         girderStockController.girderRigidBody.isKinematic = false;
         girderStockController.girderBoxCollider.isTrigger = true;
-        yield return new WaitForSeconds(pistonController.pistonDroppingTime * 0.5f);
+        yield return new WaitForSeconds(pistonController.pistonDroppingTime * 0.7f);
         pistonController.PistonMoving();
     }
     void FinishControl()
@@ -89,6 +100,20 @@ public class GirderMovements : MonoBehaviour
             {
                 UIManager.Instance.OpenReplayPanel();
 
+            }
+        }
+    }
+    void ComboBarController()
+    {
+        if (ComboBarSlider != null)
+        {
+            if (comboCount > 1)
+            {
+                ComboBarSlider.SetActive(true);
+            }
+            else
+            {
+                ComboBarSlider.SetActive(false);
             }
         }
     }

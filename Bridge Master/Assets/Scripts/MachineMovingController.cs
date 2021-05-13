@@ -14,6 +14,7 @@ public class MachineMovingController : MonoBehaviour
     public GameObject legSupportPrefab;
     public Quaternion legSupportLocalRotation;
     [SerializeField] private int legSupportLayer;
+    [SerializeField] private Ease MachineMovingEase;
 
     [HideInInspector]
     public float nextStep; // 10f
@@ -43,12 +44,12 @@ public class MachineMovingController : MonoBehaviour
         legSupportController = gameObject.transform.GetChild(2).GetChild(0).transform.GetComponent<LegSupportController>();
 
         Sequence machineSequenceForward = DOTween.Sequence();
-        machineSequenceForward.Append(transform.DOMoveZ(nextStep, machineMovingDuration))
+        machineSequenceForward.Append(transform.DOMoveZ(nextStep, machineMovingDuration).SetEase(MachineMovingEase))
         .AppendCallback(() =>
         {
             legSupportController.LegSupportCompareTag();
         })
-            .Append(transform.DOMoveZ(nextStep + machineFirstStep, machineMovingDuration).SetDelay(legSupportController.legSupportMovingDuration));
+            .Append(transform.DOMoveZ(nextStep + machineFirstStep, machineMovingDuration).SetDelay(legSupportController.legSupportMovingDuration).SetEase(MachineMovingEase));
 
         StartCoroutine(pistonController.PistonFirstMoveDelayed());
     }
@@ -65,7 +66,7 @@ public class MachineMovingController : MonoBehaviour
             legSupportController.LegSupportCompareTag();
             legSupportController2.LegSupportCompareTag();
 
-            transform.DOMoveZ(transform.position.z + girderLength, machineMovingDuration).SetDelay(legSupportController.legSupportMovingDuration);
+            transform.DOMoveZ(transform.position.z + girderLength, machineMovingDuration).SetDelay(legSupportController.legSupportMovingDuration).SetEase(MachineMovingEase);
 
             StartCoroutine(pistonController.PistonMovingDelayed());
         }

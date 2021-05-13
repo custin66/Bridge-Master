@@ -6199,13 +6199,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8507afd1ec084ced82d823c6b33abb0, type: 3}
+--- !u!1 &993175650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 993175650, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6825628937872457721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &993175653 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 993175653, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3,
     type: 3}
   m_PrefabInstance: {fileID: 6825628937872457721}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 993175650}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20c6dbf0102c7bc468113ccdd97dad83, type: 3}
@@ -14063,6 +14069,12 @@ PrefabInstance:
       objectReference: {fileID: 626978455}
     - target: {fileID: 5743916280106707376, guid: 318a12070760b614fb73d505dc9a9262,
         type: 3}
+      propertyPath: FracturedGirder
+      value: 
+      objectReference: {fileID: 7330004655631732224, guid: dd5a111c235a6dc4bba5ec20aacdf5c3,
+        type: 3}
+    - target: {fileID: 5743916280106707376, guid: 318a12070760b614fb73d505dc9a9262,
+        type: 3}
       propertyPath: transparentGirderController
       value: 
       objectReference: {fileID: 961262458}
@@ -14607,6 +14619,16 @@ PrefabInstance:
       propertyPath: GirderMat
       value: 
       objectReference: {fileID: 2100000, guid: 031433b0c06214524b3b687772735005, type: 2}
+    - target: {fileID: 4902567884722182075, guid: d4ba0dd5084946b4a8f451424ba5efe4,
+        type: 3}
+      propertyPath: MachineMovingEase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289097505437235399, guid: d4ba0dd5084946b4a8f451424ba5efe4,
+        type: 3}
+      propertyPath: PistonMovingEase
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6675130868674736728, guid: d4ba0dd5084946b4a8f451424ba5efe4,
         type: 3}
       propertyPath: m_Name
@@ -14667,6 +14689,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8682297356560226716, guid: d4ba0dd5084946b4a8f451424ba5efe4,
+        type: 3}
+      propertyPath: myBar
+      value: 
+      objectReference: {fileID: 993175653}
+    - target: {fileID: 8682297356560226716, guid: d4ba0dd5084946b4a8f451424ba5efe4,
+        type: 3}
+      propertyPath: ComboBarSlider
+      value: 
+      objectReference: {fileID: 993175650}
+    - target: {fileID: 8682297356560226716, guid: d4ba0dd5084946b4a8f451424ba5efe4,
+        type: 3}
+      propertyPath: FracturedGirder
+      value: 
+      objectReference: {fileID: 7330004655631732224, guid: dd5a111c235a6dc4bba5ec20aacdf5c3,
+        type: 3}
     - target: {fileID: 8682297356560226716, guid: d4ba0dd5084946b4a8f451424ba5efe4,
         type: 3}
       propertyPath: transparentGirderController
@@ -14765,6 +14803,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 993175650, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993175653, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 993175653, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
+      propertyPath: invert
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 993175653, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
+      propertyPath: currentPercent
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1037514581, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
