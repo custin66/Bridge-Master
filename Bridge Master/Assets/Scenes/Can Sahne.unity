@@ -8131,6 +8131,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436698875}
   m_Mesh: {fileID: -8599285025709252218, guid: 92a4729f6f0d69347b0482562c18d69f, type: 3}
+--- !u!1 &1441402642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441402643}
+  m_Layer: 0
+  m_Name: FracturedGirders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1441402643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441402642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1449698703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10968,6 +10998,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8507afd1ec084ced82d823c6b33abb0, type: 3}
+--- !u!1 &2070107359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070107360}
+  m_Layer: 0
+  m_Name: FracturedGirders AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2070107360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070107359}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2074756159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14075,6 +14135,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5743916280106707376, guid: 318a12070760b614fb73d505dc9a9262,
         type: 3}
+      propertyPath: FracturedGirdersParent
+      value: 
+      objectReference: {fileID: 2070107359}
+    - target: {fileID: 5743916280106707376, guid: 318a12070760b614fb73d505dc9a9262,
+        type: 3}
       propertyPath: transparentGirderController
       value: 
       objectReference: {fileID: 961262458}
@@ -14705,6 +14770,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7330004655631732224, guid: dd5a111c235a6dc4bba5ec20aacdf5c3,
         type: 3}
+    - target: {fileID: 8682297356560226716, guid: d4ba0dd5084946b4a8f451424ba5efe4,
+        type: 3}
+      propertyPath: FracturedGirdersParent
+      value: 
+      objectReference: {fileID: 1441402642}
     - target: {fileID: 8682297356560226716, guid: d4ba0dd5084946b4a8f451424ba5efe4,
         type: 3}
       propertyPath: transparentGirderController

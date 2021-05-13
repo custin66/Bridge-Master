@@ -14,9 +14,7 @@ public class PistonController : MonoBehaviour
     [HideInInspector]
     public bool isSwingingAI = false;
 
-    [SerializeField]
-    private float pistonSwingTime, pistonMaxSwingPoint; // pistonun salınım süresi // 1f,3f,1f
-
+    public float pistonSwingTime, pistonMaxSwingPoint; // pistonun salınım süresi // 1f,3f,1f
     public float pistonDroppingTime;
 
     private void Start()

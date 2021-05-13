@@ -16,6 +16,7 @@ public class GirderMovements : MonoBehaviour
     [SerializeField] private int bridgeCount;
     [SerializeField] private GameObject ComboBarSlider;
     [SerializeField] private GameObject FracturedGirder;
+    [SerializeField] private GameObject FracturedGirdersParent;
     [SerializeField] private ProgressBar myBar;
 
     [HideInInspector] public GameObject Girder;
@@ -80,13 +81,15 @@ public class GirderMovements : MonoBehaviour
         // transparentGirderController.BackToOriginalMaterial();
         // transparentGirderController.originalMaterial = false;
         yield return new WaitForSeconds(pistonController.pistonDroppingTime);
-        Instantiate(FracturedGirder, Girder.transform.position, Quaternion.identity);
+        Instantiate(FracturedGirder, Girder.transform.position, Quaternion.identity, FracturedGirdersParent.transform);
         Destroy(Girder.gameObject);
         //Girder.transform.SetParent(null);
         girderStockController.girderRigidBody.isKinematic = false;
         girderStockController.girderBoxCollider.isTrigger = true;
-        yield return new WaitForSeconds(pistonController.pistonDroppingTime * 0.7f);
+        yield return new WaitUntil(() => Mathf.Abs(transform.GetChild(1).transform.localPosition.x) == pistonController.pistonMaxSwingPoint);
         pistonController.PistonMoving();
+        yield return new WaitForSeconds(3f);
+        Destroy(FracturedGirdersParent.transform.GetChild(0).gameObject);
     }
     void FinishControl()
     {
