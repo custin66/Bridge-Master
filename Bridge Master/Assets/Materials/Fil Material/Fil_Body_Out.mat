@@ -20,15 +20,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fil_Body
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: BACKSOLID LEFTSOLID OUTLINE_BLENDING TOPSOLID _AOUV_UV0 _EMISSION
-    _GRADIENTSPACE_WORLD_SPACE _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL
-    _GRADSETTINGS_F_USE_GLOBAL _GRADSETTINGS_L_USE_GLOBAL _GRADSETTINGS_R_USE_GLOBAL
-    _GRADSETTINGS_T_USE_GLOBAL _LMAPBLENDINGMODE_ADD _MODE_OPAQUE _SHADING_B_VERTEX_COLOR
-    _SHADING_D_VERTEX_COLOR _SHADING_F_VERTEXCOLOR _SHADING_L_VERTEX_COLOR _SHADING_R_VERTEX_COLOR
-    _SHADING_T_VERTEX_COLOR
-  m_LightmapFlags: 0
+  m_Name: Fil_Body_Out
+  m_Shader: {fileID: 4800000, guid: a6da473b89caeb1409bac856668af764, type: 3}
+  m_ShaderKeywords: BACKSOLID LEFTSOLID TCP2_SPEC_TOON TOPSOLID _AOUV_UV0 _GRADIENTSPACE_WORLD_SPACE
+    _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL _GRADSETTINGS_F_USE_GLOBAL
+    _GRADSETTINGS_L_USE_GLOBAL _GRADSETTINGS_R_USE_GLOBAL _GRADSETTINGS_T_USE_GLOBAL
+    _LMAPBLENDINGMODE_ADD _MODE_OPAQUE _SHADING_B_VERTEX_COLOR _SHADING_D_VERTEX_COLOR
+    _SHADING_F_VERTEXCOLOR _SHADING_L_VERTEX_COLOR _SHADING_R_VERTEX_COLOR _SHADING_T_VERTEX_COLOR
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -62,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 518aa9122c69440369994a0ee2ada76b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -192,7 +191,7 @@ Material:
     - _Shading_T: 1
     - _ShadowBlend: 0
     - _ShadowInfluence: 0
-    - _Shininess: 0.01
+    - _Shininess: 0.04
     - _ShowAO: 0
     - _ShowAmbientSettings: 0
     - _ShowBack: 1
@@ -209,7 +208,7 @@ Material:
     - _ShowTop: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SpecSmooth: 0.296
+    - _SpecSmooth: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendOutline: 5
@@ -239,7 +238,7 @@ Material:
     - _Color2_R: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_T: {r: 1, g: 1, b: 1, a: 1}
     - _Color_Fog: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.8467539, g: 0.8490566, b: 0.47659308, a: 1}
     - _GizmoPosition_B: {r: 0, g: 0, b: 10, a: 10}
     - _GizmoPosition_D: {r: 0, g: 0, b: 10, a: 10}
     - _GizmoPosition_F: {r: 0, g: 0, b: 10, a: 10}
@@ -260,6 +259,6 @@ Material:
     - _RimDir: {r: 0, g: 0, b: 1, a: 0}
     - _SColor: {r: 0.21026169, g: 0.2244769, b: 0.23584908, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.8773585, g: 0.23589355, b: 0.23589355, a: 1}
+    - _SpecColor: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
     - _TintColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

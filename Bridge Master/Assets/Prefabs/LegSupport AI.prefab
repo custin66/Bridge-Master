@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1055583718545837509}
   - component: {fileID: 5924819281802085414}
   m_Layer: 0
-  m_Name: LegSupport
+  m_Name: LegSupport AI
   m_TagString: FrontSupport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d196fd0e8fe5e4cb8949b9e522aaa923, type: 2}
+  - {fileID: 2100000, guid: 7c4b80a2336394241ae347b23e9bc2a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -201,7 +201,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d196fd0e8fe5e4cb8949b9e522aaa923, type: 2}
+  - {fileID: 2100000, guid: 7c4b80a2336394241ae347b23e9bc2a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
