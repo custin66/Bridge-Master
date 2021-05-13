@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SliderController : MonoBehaviour
 {
     public Slider PathSlider;
+    public Slider PathSlider2;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +17,9 @@ public class SliderController : MonoBehaviour
     void Update()
     {
         PathSlider.value = transform.position.z;
+        if (PathSlider2 != null)
+        {
+        PathSlider2.value = transform.position.z;
+        }
     }
 }

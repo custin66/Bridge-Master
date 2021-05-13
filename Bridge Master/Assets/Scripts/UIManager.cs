@@ -39,6 +39,9 @@ public class UIManager : MonoBehaviour
         //Next lvl sahne değişecek
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //finishGamePanel.SetActive(false);
+        finishGamePanel.SetActive(false);
+        replayGamePanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void OpenFinishPanel()

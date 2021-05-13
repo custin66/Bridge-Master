@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Michsky.UI.ModernUIPack;
 
 public class GirderMovements : MonoBehaviour
 {
@@ -11,22 +12,28 @@ public class GirderMovements : MonoBehaviour
     [SerializeField] TransparentGirderController transparentGirderController;
     [SerializeField] MachineEffectController machineEffectController;
 
-    //[SerializeField]
-    //Material lampMaterial;
-
     [HideInInspector] public int comboCount = 0;
     [SerializeField] private int bridgeCount;
+    [SerializeField] private GameObject ComboBarSlider;
+    [SerializeField] private GameObject FracturedGirder;
+    [SerializeField] private GameObject FracturedGirdersParent;
+    [SerializeField] private ProgressBar myBar;
 
-    private GameObject Girder;
-    [HideInInspector]
-    public bool successedPlayer, successedAI = false;
+    [HideInInspector] public GameObject Girder;
+    [HideInInspector] public bool successedPlayer, successedAI = false;
 
     [HideInInspector]
     public float girderLocation = 20f;
 
+    void Awake()
+    {
+        girderStockController.GirderStockBringing();
+    }
+
     void Update()
     {
         FinishControl();
+        ComboBarController();
     }
     public void TimingControl() // Tap timing mekanizmasını kontrol eder
     {
@@ -39,39 +46,25 @@ public class GirderMovements : MonoBehaviour
 
             if (successedPlayer || successedAI)
             {
+                transparentGirderController.BackToOriginalMaterial();
                 GirderSitsToBridge();
-                //LampGreen();
                 machineEffectController.TrueHitParticlePlay();
-                //  MachineEffectController.Instance.tamOturduParticlePlay();
                 comboCount++;
+                if (myBar != null)
+                {
+                    myBar.currentPercent = 100f;
+                }
                 bridgeCount--;
             }
             else
             {
                 pistonController.PistonReturns();
                 StartCoroutine(GirderFellDown());
-                // LampRed();
                 comboCount = 0;
             }
             machineMovingController.SetCombo();
         }
     }
-
-    void LampDevrim()
-    {
-
-
-    }
-    //void LampRed()
-    //{
-    //    lampMaterial.color = Color.red;
-    //}
-    //void LampGreen()
-    //{
-    //    lampMaterial.color = Color.green;
-
-    //}
-
     void GirderSitsToBridge()
     {
         machineMovingController.nextStep += 10;
@@ -81,16 +74,22 @@ public class GirderMovements : MonoBehaviour
                   .Append(Girder.transform.DOLocalMoveZ(girderLocation, 0.1f));
         girderLocation += 10f;
         machineMovingController.MachineForwardMovingNextStep();
-        transparentGirderController.MoveTransparentGirder();
+        transparentGirderController.originalMaterial = false;
     }
     IEnumerator GirderFellDown()
     {
+        // transparentGirderController.BackToOriginalMaterial();
+        // transparentGirderController.originalMaterial = false;
         yield return new WaitForSeconds(pistonController.pistonDroppingTime);
-        Girder.transform.SetParent(null);
+        Instantiate(FracturedGirder, Girder.transform.position, Quaternion.identity, FracturedGirdersParent.transform);
+        Destroy(Girder.gameObject);
+        //Girder.transform.SetParent(null);
         girderStockController.girderRigidBody.isKinematic = false;
         girderStockController.girderBoxCollider.isTrigger = true;
-        yield return new WaitForSeconds(pistonController.pistonDroppingTime * 0.5f);
+        yield return new WaitUntil(() => Mathf.Abs(transform.GetChild(1).transform.localPosition.x) == pistonController.pistonMaxSwingPoint);
         pistonController.PistonMoving();
+        yield return new WaitForSeconds(3f);
+        Destroy(FracturedGirdersParent.transform.GetChild(0).gameObject);
     }
     void FinishControl()
     {
@@ -104,6 +103,20 @@ public class GirderMovements : MonoBehaviour
             {
                 UIManager.Instance.OpenReplayPanel();
 
+            }
+        }
+    }
+    void ComboBarController()
+    {
+        if (ComboBarSlider != null)
+        {
+            if (comboCount > 1)
+            {
+                ComboBarSlider.SetActive(true);
+            }
+            else
+            {
+                ComboBarSlider.SetActive(false);
             }
         }
     }

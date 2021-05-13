@@ -7,8 +7,8 @@ public class GirderStockController : MonoBehaviour
     [SerializeField] PistonController pistonController;
     [SerializeField] GirderMovements girderMovements;
 
-    [SerializeField]
-    GameObject Girder;
+    
+    public GameObject Girder;
 
     [HideInInspector]
     public Rigidbody girderRigidBody;
@@ -17,9 +17,9 @@ public class GirderStockController : MonoBehaviour
     public Quaternion girderLocalRotation;
     private void Awake()
     {
-        girderLocalPos = transform.parent.GetChild(1).GetChild(1).transform.localPosition;
-        girderRigidBody = transform.parent.GetChild(1).GetChild(1).GetComponent<Rigidbody>();
-        girderBoxCollider = transform.parent.GetChild(1).GetChild(1).GetComponent<BoxCollider>();
+        girderLocalPos = new Vector3(0f, 0f, -22.3f); //transform.parent.GetChild(1).GetChild(1).transform.localPosition;
+                                                      // girderRigidBody = transform.parent.GetChild(1).GetChild(1).GetComponent<Rigidbody>();
+                                                      //  girderBoxCollider = transform.parent.GetChild(1).GetChild(1).GetComponent<BoxCollider>();
     }
 
     public void GirderStockBringing() // makinenin pistonuna yeni kiriş doğurur

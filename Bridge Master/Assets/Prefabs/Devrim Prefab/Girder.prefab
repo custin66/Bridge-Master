@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5312224877256377451}
   - component: {fileID: 2609637135521995239}
   - component: {fileID: 6958340804475350657}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Girder
   m_TagString: Girder
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca8dfcf738b7548958331becd2440f78, type: 2}
+  - {fileID: 2100000, guid: 49896225dd8eef6498908fcca5e0e1f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6473326156246417528
 Transform:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6680433695302857882
 Transform:
   m_ObjectHideFlags: 0

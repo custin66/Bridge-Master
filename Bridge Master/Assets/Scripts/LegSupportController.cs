@@ -6,6 +6,7 @@ using UnityEngine;
 public class LegSupportController : MonoBehaviour
 {
     private Vector3 legSupportLocalPos;
+    [SerializeField] Ease LegSupportEase;
     [HideInInspector]
     public float legSupportMovingDuration = 1f;
     private float rotationAngle = 90f;
@@ -35,8 +36,8 @@ public class LegSupportController : MonoBehaviour
             transform.SetParent(transform.parent.parent.parent.GetChild(1).gameObject.transform);
             transform.tag = "BackSupport";
             Sequence legSupportSequenceOpening = DOTween.Sequence();
-            legSupportSequenceOpening.Append(transform.DOLocalRotate(Vector3.zero, legSupportMovingDuration))
-                .Join(transform.DOLocalMoveY(legSupportOpenedPos, legSupportMovingDuration));
+            legSupportSequenceOpening.Append(transform.DOLocalRotate(Vector3.zero, legSupportMovingDuration).SetEase(LegSupportEase))
+                .Join(transform.DOLocalMoveY(legSupportOpenedPos, legSupportMovingDuration).SetEase(LegSupportEase));
         }
     }
     void LegSupportClosing() //Ön ayak kapanır
@@ -47,8 +48,8 @@ public class LegSupportController : MonoBehaviour
     {
         yield return new WaitForSeconds(legSupportMovingDuration);
         Sequence legSupportSequenceClosing = DOTween.Sequence();
-        legSupportSequenceClosing.Append(transform.DORotate(Vector3.right * rotationAngle, legSupportMovingDuration).SetEase(Ease.Linear))
-            .Join(transform.DOLocalMoveY(0f, legSupportMovingDuration).SetEase(Ease.Linear));
+        legSupportSequenceClosing.Append(transform.DORotate(Vector3.right * rotationAngle, legSupportMovingDuration).SetEase(LegSupportEase))
+            .Join(transform.DOLocalMoveY(0f, legSupportMovingDuration).SetEase(LegSupportEase));
         yield return new WaitForSeconds(legSupportMovingDuration);
         Destroy(gameObject);
     }

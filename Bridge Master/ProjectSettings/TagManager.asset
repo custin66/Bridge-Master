@@ -8,6 +8,8 @@ TagManager:
   - Piston
   - FrontSupport
   - BackSupport
+  - FxTemporaire
+  - Missile
   layers:
   - Default
   - TransparentFX
@@ -16,9 +18,9 @@ TagManager:
   - Water
   - UI
   - AI
-  - 
-  - 
-  - 
+  - Back
+  - Mid
+  - Front
   - 
   - 
   - 
