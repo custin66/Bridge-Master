@@ -2119,6 +2119,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CPT_Island_H_a_06_LOD
       objectReference: {fileID: 0}
+    - target: {fileID: 136294, guid: 149cb555332bf1d40ac5af4c48cfe330, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 427872, guid: 149cb555332bf1d40ac5af4c48cfe330, type: 3}
       propertyPath: m_RootOrder
       value: 2
