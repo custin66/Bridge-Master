@@ -15965,30 +15965,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 65935508, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 426
-      objectReference: {fileID: 0}
-    - target: {fileID: 65935508, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 775
-      objectReference: {fileID: 0}
-    - target: {fileID: 993175650, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 993175653, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 993175653, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
-      propertyPath: invert
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 993175653, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
-      propertyPath: currentPercent
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1037514581, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -16002,11 +15978,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3235630054852815132, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 773
       objectReference: {fileID: 0}
     - target: {fileID: 6825628937716907922, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3,
         type: 3}
@@ -16066,11 +16037,6 @@ PrefabInstance:
     - target: {fileID: 6825628937716907924, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8137450461541737458, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3,
-        type: 3}
-      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8193071251196995419, guid: 01725c1a5e3bbee4da6ea9d31eb5c6c3,
