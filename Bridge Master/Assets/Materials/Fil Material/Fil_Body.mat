@@ -224,7 +224,7 @@ Material:
     - _AOColor: {r: 0, g: 0, b: 0, a: 1}
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.8301887, g: 0.64588463, b: 0.19188325, a: 1}
-    - _Color: {r: 1, g: 0.8948372, b: 0.2688679, a: 1}
+    - _Color: {r: 0.8018868, g: 0.7200753, b: 0.23829654, a: 1}
     - _Color1_B: {r: 0.3882353, g: 0.3263409, b: 0.21176471, a: 1}
     - _Color1_D: {r: 1, g: 1, b: 1, a: 1}
     - _Color1_F: {r: 1, g: 1, b: 1, a: 1}
@@ -252,7 +252,7 @@ Material:
     - _GradientYStartPos_G: {r: 0, g: 0, b: 0, a: 0}
     - _GradientYStartPos_L: {r: 0, g: 0, b: 0, a: 0}
     - _GradientYStartPos_R: {r: 0, g: 0, b: 0, a: 0}
-    - _HColor: {r: 0.8301887, g: 0.78475356, b: 0.34069067, a: 1}
+    - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _LMColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0.11320752, g: 0.10840154, b: 0.10840154, a: 0.6}
