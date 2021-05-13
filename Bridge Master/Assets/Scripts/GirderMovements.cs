@@ -88,8 +88,8 @@ public class GirderMovements : MonoBehaviour
         girderStockController.girderBoxCollider.isTrigger = true;
         yield return new WaitUntil(() => Mathf.Abs(transform.GetChild(1).transform.localPosition.x) == pistonController.pistonMaxSwingPoint);
         pistonController.PistonMoving();
-        yield return new WaitForSeconds(3f);
-        Destroy(FracturedGirdersParent.transform.GetChild(0).gameObject);
+        //yield return new WaitForSeconds(3f);
+        //Destroy(FracturedGirdersParent.transform.GetChild(0).gameObject);
     }
     void FinishControl()
     {
